@@ -42,10 +42,20 @@ eda/
 
 ## Próximos passos (Mini Projeto da Task 06)
 
-* [ ] Ligar `PublicarTarefaCriadaUseCase` ao fluxo real de criação de tarefa do CRUD
-* [ ] Adicionar mais um listener demonstrando Pub/Sub com múltiplos consumers
+* [x] Ligar `PublicarTarefaCriadaUseCase` ao fluxo real de criação de tarefa do CRUD —
+      ver [09-tasks-EDA-CAP-REST.md](09-tasks-EDA-CAP-REST.md)
+* [x] Adicionar mais um listener demonstrando Pub/Sub com múltiplos consumers —
+      `TarefaCriadaMetricsListener`, que também conecta ao
+      [Serviço 7 — Metrics](07-metrics-service.md)
 * [ ] (Fase futura) Migrar producer/consumer para Kafka ou RabbitMQ — ver skills
       `mensageria-kafka` / `mensageria-rabbitmq`
+
+**Resumo do que foi implementado (04/08/2026):** `CriarTarefaUseCase` (rest/application)
+agora publica `TarefaCriadaEvent` após persistir a tarefa com sucesso. Dois listeners
+independentes reagem ao mesmo evento — `TarefaCriadaEventListener` (log) e
+`TarefaCriadaMetricsListener` (incrementa `tarefas.criadas.total` no Actuator/Prometheus).
+Validado via curl + log da aplicação + `/actuator/metrics`. Detalhes em
+[09-tasks-EDA-CAP-REST.md](09-tasks-EDA-CAP-REST.md).
 
 ## Referências
 

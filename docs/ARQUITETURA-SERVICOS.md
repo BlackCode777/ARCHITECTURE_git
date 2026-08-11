@@ -43,6 +43,14 @@ JVM e `pom.xml`.
 | 6 | `lb-service` | `lb` | Load Balance (Round Robin, Health Check, Reverse Proxy) | [06-lb-service.md](06-lb-service.md) |
 | 7 | `metrics-service` | `metrics` | Observabilidade e Métricas (Actuator, Prometheus) | [07-metrics-service.md](07-metrics-service.md) |
 
+Infraestrutura transversal (pré-requisito dos 7 serviços acima): PostgreSQL, Podman,
+Flyway, Swagger e Actuator — ver [08-infraestrutura-base.md](08-infraestrutura-base.md).
+
+Tasks 02, 03 e 06 executadas sobre o primeiro CRUD real (Tarefa em PostgreSQL): CAP
+observado empiricamente, REST completo e EDA ligado ao fluxo real — ver
+[09-tasks-EDA-CAP-REST.md](09-tasks-EDA-CAP-REST.md) e
+[ADR-0002](ADR-0002-cap-503-particao.md).
+
 ## Estrutura de Pastas — Padrão Comum
 
 Cada pacote de serviço segue a mesma filosofia hexagonal definida no catálogo global
@@ -82,6 +90,7 @@ completas (ex.: `ntp` é majoritariamente utilitário/config).
 | ntp-service | ✅ | ✅ (esqueleto) | ⬜ | ver ADR-0001 |
 | lb-service | ✅ | ✅ (esqueleto) | ⬜ | ver ADR-0001 |
 | metrics-service | ✅ | ✅ (esqueleto) | ⬜ | ver ADR-0001 |
+| infraestrutura-base | ✅ | ✅ (Postgres/Podman/Flyway/Swagger/Actuator validados) | ⬜ | ver [08-infraestrutura-base.md](08-infraestrutura-base.md) |
 
 > Regra de evolução: **toda nova criação de código dentro de um pacote de serviço
 > exige atualização do documento correspondente** (`0N-<servico>.md`) e, se a decisão

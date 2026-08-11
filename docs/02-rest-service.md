@@ -37,11 +37,21 @@ rest/
 
 ## Próximos passos (Mini Projeto da Task 03)
 
-* [ ] Expandir para o CRUD completo de Tarefas com verbos REST corretos
-* [ ] Implementar OpenAPI/Swagger (`springdoc-openapi-starter-webmvc-ui`, já listado
-      no roadmap de dependências)
-* [ ] Criar client HTTP (`WebClient`) para testar chamadas entre serviços
-* [ ] Documentar o contrato (request/response) de cada endpoint
+* [x] Expandir para o CRUD completo de Tarefas com verbos REST corretos — ver
+      [09-tasks-EDA-CAP-REST.md](09-tasks-EDA-CAP-REST.md)
+* [x] Implementar OpenAPI/Swagger (`springdoc-openapi-starter-webmvc-ui`) — já
+      configurado desde [08-infraestrutura-base.md](08-infraestrutura-base.md),
+      endpoints do CRUD anotados com `@Tag`/`@Operation`
+* [ ] Criar client HTTP (`WebClient`) para testar chamadas entre serviços — adiado
+      para quando houver um segundo serviço real a consumir (Fase 2 — Microservices)
+* [x] Documentar o contrato (request/response) de cada endpoint — via `/v3/api-docs`
+      (Swagger vivo) e tabela de endpoints em
+      [09-tasks-EDA-CAP-REST.md](09-tasks-EDA-CAP-REST.md#endpoints-verbos-e-status-corretos)
+
+**Resumo do que foi implementado (04/08/2026):** CRUD REST completo (`POST/GET/PUT/PATCH/DELETE
+/rest/tarefas`) com `TarefaEntity` JPA persistindo em PostgreSQL, DTOs `Request`/`Response`,
+validação Bean Validation e erros no formato RFC 9457 (`ProblemDetail`). Detalhes e
+resultados dos testes via curl em [09-tasks-EDA-CAP-REST.md](09-tasks-EDA-CAP-REST.md).
 
 ## Referências
 
