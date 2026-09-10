@@ -1,0 +1,20 @@
+# Profile de teste. O datasource vem do Testcontainers via @ServiceConnection
+# (PostgreSQLContainer) — não há URL fixa aqui de propósito.
+spring:
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate.jdbc.time_zone: UTC
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+  testcontainers:
+    ryuk:
+      enabled: false
+
+logging:
+  level:
+    org.testcontainers: INFO
+    com.github.dockerjava: WARN
