@@ -1,1 +1,36 @@
+# --- Diretórios de estudo/roadmap (específicos deste repo) ---
 /ROADMAP-ESTUDO-ARQUITETURA-SOFTWARE-IA-FIRST
+
+# --- Build output (Maven/Gradle) — qualquer pasta target, em qualquer nível ---
+target/
+
+# Relatórios de teste (surefire/failsafe) e status do compilador Maven
+**/surefire-reports/
+**/failsafe-reports/
+**/maven-status/
+**/maven-archiver/
+*.dumpstream
+
+# --- IntelliJ IDEA ---
+.idea/
+*.iml
+*.ipr
+*.iws
+# Saída de build do IntelliJ (sem afetar pacotes-fonte como src/.../port/out)
+/out/
+*/out/
+
+# --- VS Code ---
+.vscode/
+*.code-workspace
+
+# --- graphify (grafo de conhecimento gerado localmente) ---
+graphify-out/
+.graphify_root
+.graphify_python
+
+# --- Spring Initializr ---
+HELP.md
+
+# --- Diversos ---
+*.log
