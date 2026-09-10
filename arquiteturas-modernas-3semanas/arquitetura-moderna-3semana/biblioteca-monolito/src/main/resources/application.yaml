@@ -1,0 +1,33 @@
+spring:
+  application:
+    name: biblioteca-monolito
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/biblioteca_db
+    username: biblioteca
+    password: biblioteca
+
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate.jdbc.time_zone: UTC
+
+  flyway:
+    enabled: true
+    # schema em db/migration; dados de exemplo em db/seed (fora do profile de teste)
+    locations: classpath:db/migration,classpath:db/seed
+
+server:
+  port: 8080
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html

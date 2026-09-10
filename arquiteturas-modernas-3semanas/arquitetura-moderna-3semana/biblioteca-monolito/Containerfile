@@ -1,0 +1,21 @@
+# ---- build ----
+FROM docker.io/library/eclipse-temurin:25-jdk AS build
+WORKDIR /app
+COPY .mvn/ .mvn/
+COPY mvnw pom.xml ./
+RUN ./mvnw -B dependency:go-offline
+COPY src/ src/
+RUN ./mvnw -B clean package -DskipTests \
+    && java -Djarmode=tools -jar target/*.jar extract --layers --destination target/extracted
+
+# ---- runtime ----
+FROM docker.io/library/eclipse-temurin:25-jre
+WORKDIR /app
+RUN useradd -r -u 1001 spring
+COPY --from=build /app/target/extracted/dependencies/ ./
+COPY --from=build /app/target/extracted/spring-boot-loader/ ./
+COPY --from=build /app/target/extracted/snapshot-dependencies/ ./
+COPY --from=build /app/target/extracted/application/ ./
+USER spring
+EXPOSE 8080
+ENTRYPOINT ["java", "org.springframework.boot.loader.launch.JarLauncher"]
