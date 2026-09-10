@@ -86,8 +86,8 @@ completas (ex.: `ntp` é majoritariamente utilitário/config).
 | cap-service | ✅ | ✅ (esqueleto) | ⬜ | ver [ADR-0001](ADR-0001-arquitetura-servicos.md) |
 | rest-service | ✅ | ✅ (esqueleto) | ⬜ | ver ADR-0001 |
 | eda-service | ✅ | ✅ (esqueleto) | ⬜ | ver ADR-0001 |
-| hexagonal-service | ✅ | ✅ (esqueleto) | ⬜ | ver ADR-0001 |
-| ntp-service | ✅ | ✅ (esqueleto) | ⬜ | ver ADR-0001 |
+| hexagonal-service | ✅ | ✅ (adapter JPA real validado — [04-hexagonal-service.md](04-hexagonal-service.md)) | ⬜ | ver ADR-0001 |
+| ntp-service | ✅ | ✅ (RelogioUtcService aplicado ao CRUD real — [05-ntp-service.md](05-ntp-service.md)) | ⬜ | ver ADR-0001 |
 | lb-service | ✅ | ✅ (esqueleto) | ⬜ | ver ADR-0001 |
 | metrics-service | ✅ | ✅ (esqueleto) | ⬜ | ver ADR-0001 |
 | infraestrutura-base | ✅ | ✅ (Postgres/Podman/Flyway/Swagger/Actuator validados) | ⬜ | ver [08-infraestrutura-base.md](08-infraestrutura-base.md) |
